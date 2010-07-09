@@ -232,6 +232,7 @@ class TPost extends TModel
         {
             $tpost=new self;
             $tpost->_post=$thePost;
+            $tpost->setAsCurrentPost();
             return $tpost;
         }
         return NULL;

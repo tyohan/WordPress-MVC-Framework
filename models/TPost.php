@@ -36,8 +36,9 @@ require_once dirname(__FILE__).'/../TModel.php';
 
 class TPost extends TModel
 {
-    private $_post=NULL;
-    private $_author=NULL;
+    private $_post;
+    private $_author;
+
 
     public function setAsCurrentPost()
     {
@@ -224,6 +225,17 @@ class TPost extends TModel
         $args=array_merge(array('post_id'=>$this->id,'status'=>$status),$option);
         return get_comments( $args );
     }
+
+    public function getPreviousPost($inSameCategory=FALSE, $excludedCategories='')
+    {
+        return get_previous_post( $inSameCategory, $excluded_categories );
+    }
+    
+    public function getNextPost($inSameCategory=FALSE, $excludedCategories='')
+    {
+        return get_next_post( $inSameCategory, $excluded_categories );
+    }
+
     
     public static function find($id)
     {

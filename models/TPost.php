@@ -37,6 +37,7 @@ require_once dirname(__FILE__).'/../TModel.php';
 class TPost extends TModel
 {
     private $_post=NULL;
+    private $_author=NULL;
 
     public function setAsCurrentPost()
     {
@@ -64,7 +65,9 @@ class TPost extends TModel
     
     public function getAuthor()
     {
-        return get_userdata($this->authorID);
+        if($this->_author===NULL)
+                $this->_author=get_userdata($this->authorID);
+        return $this->_author;
     }
 
     public function getAuthorID()

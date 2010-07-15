@@ -1,5 +1,5 @@
 <?php
-/* 
+/* The $_post properties:
  * ID (integer) The post ID
  * post_author (integer) The post author's ID
  * post_date (string) The datetime of the post (YYYY-MM-DD HH:MM:SS)

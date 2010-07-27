@@ -69,7 +69,7 @@ class TView extends TBase
     
     public function getActiveThemeDirectory()
     {
-        return $this->getActiveThemeDirectory().$this->_activeTheme.'/';
+        return $this->getThemesDirectory().$this->_activeTheme.'/';
     }
 }
 ?>

@@ -13,9 +13,21 @@
 require_once dirname(__FILE__).'/TBase.php';
 class WpMvc extends TBase
 {
-    protected static $_instance;
+
+    static $_instance;
     private $_view;
 
+
+
+    public function setTheme($theme)
+    {
+        self::app()->view->_activeTheme=$theme;
+    }
+    public function getTheme()
+    {
+        return self::app()->view->_activeTheme;
+    }
+    
     public static function app()
     {
         if (!(self::$_instance instanceof self))
@@ -53,6 +65,14 @@ class WpMvc extends TBase
 
 function __autoload($className)
 {
-    require_once $className . '.php';
+    $root=dirname(__FILE__);
+    $models=dirname(__FILE__).'/models';
+    if(is_file($root.'/'.$className.'.php'))
+        require_once $root.'/'.$className.'.php';
+    elseif(is_file($models.'/'.$className.'.php'))
+        require_once $models.'/'.$className.'.php';
+    else
+        Throw new Exception ("Class can't autoloaded!");
+
 }
 ?>

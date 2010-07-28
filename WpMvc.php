@@ -71,8 +71,7 @@ function __autoload($className)
         require_once $root.'/'.$className.'.php';
     elseif(is_file($models.'/'.$className.'.php'))
         require_once $models.'/'.$className.'.php';
-    else
-        Throw new Exception ("Class can't autoloaded!");
+
 
 }
 ?>

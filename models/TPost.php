@@ -40,6 +40,7 @@ class TPost extends TModel
     private $_author;
 
 
+
     public function setAsCurrentPost()
     {
         return setup_postdata($this->_post);
@@ -59,9 +60,9 @@ class TPost extends TModel
     }
 
 
-    public function getid()
+    public function getID()
     {
-        return $this->loadValue('id');
+        return $this->loadValue('ID');
     }
     
     public function getAuthor()
@@ -185,7 +186,10 @@ class TPost extends TModel
     {
         return $this->loadValue('comment_count');
     }
-
+    public function getIsHasComment()
+    {
+        return ($this->commentCount>0);
+    }
     public function getCategories($args=array())
     {
         return wp_get_post_categories( $this->id, $args );
@@ -215,14 +219,17 @@ class TPost extends TModel
     {
         return get_post_custom_values($key, $this->id);
     }
-    
+    public function getPermalink()
+    {
+        return get_permalink($this->id);
+    }
     /*
      * Do not include post_id in options parameter
      * Ref http://codex.wordpress.org/Function_Reference/get_comments
      */
-    public function getComments($status='approve',$option=array())
+    public function getComments($option=array())
     {
-        $args=array_merge(array('post_id'=>$this->id,'status'=>$status),$option);
+        $args=array_merge(array('post_id'=>$this->id),$option);
         return get_comments( $args );
     }
 
@@ -261,14 +268,44 @@ class TPost extends TModel
             $postList=array();
             foreach($thePosts as $thePost)
             {
-                $postItem=new TPost;
+                $postItem=new self;
                 $postItem->loadPost($thePost);
                 $postList[]=$postItem;
             }
             return $postList;
         }
         
-        return NULL;
+        return array();
+    }
+
+    public static function defaultPosts()
+    {
+        global $wp_query;
+        if(count($wp_query->posts>0))
+        {
+        foreach($wp_query->posts as $thePost)
+            {
+                $postItem=new self;
+                $postItem->loadPost($thePost);
+                $postList[]=$postItem;
+            }
+            return $postList;
+        }
+        return array();
+    }
+
+    public static function defaultPost()
+    {
+        global $wp_query;
+        if(isset($wp_query->posts[0]))
+        {
+            $tpost=new self;
+            $tpost->_post=$wp_query->posts[0];
+            $tpost->setAsCurrentPost();
+            return $tpost;
+        }
+        else
+            return NULL;
     }
 }
 ?>

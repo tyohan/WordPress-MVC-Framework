@@ -53,11 +53,11 @@ class TView extends TBase
             return $viewFile;
         else
         {
-            $viewFile=$this->getThemesDirectory().self::THEMEDEFAULT.$view;
+            $viewFile=$this->getThemesDirectory().self::THEMEDEFAULT.'/'.$view.'.php';
             if(is_file($viewFile))
                 return $viewFile;
             else
-                throw new Exception("The view file '".$view.".php' doesn't exist!");
+                throw new Exception("The view file '".$view.".php' doesn't exist in ".$viewFile);
         }
 
     }

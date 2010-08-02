@@ -21,9 +21,11 @@ class TPostList implements Iterator {
 
     function current() {
         $thePost=$this->list[$this->position];
-        $thePost->setAsCurrentPost();
-        $GLOBALS['post']=$thePost->thePost;
-        return $thePost;
+        $postItem=new TPost;
+        $postItem->loadPost($thePost);
+        $postItem->setAsCurrentPost();
+        $GLOBALS['post']=$postItem->thePost;
+        return $postItem;
     }
 
     function key() {

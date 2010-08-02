@@ -269,14 +269,7 @@ class TPost extends TModel
         $thePosts=query_posts($args);
         if($thePosts)
         {
-            $postList=array();
-            foreach($thePosts as $thePost)
-            {
-                $postItem=new self;
-                $postItem->loadPost($thePost);
-                $postList[]=$postItem;
-            }
-            return new TPostList($postList);
+            return new TPostList($thePosts);
         }
         
         return array();

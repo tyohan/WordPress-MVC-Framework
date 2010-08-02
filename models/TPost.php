@@ -280,15 +280,7 @@ class TPost extends TModel
         global $wp_query;
         if(count($wp_query->posts>0))
         {
-
-        $postList=array();
-        foreach($wp_query->posts as $thePost)
-            {
-                $postItem=new self;
-                $postItem->loadPost($thePost);
-                $postList[]=$postItem;
-            }
-            return new TPostList($postList);
+            return new TPostList($wp_query->posts);
         }
         return array();
     }

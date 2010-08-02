@@ -53,7 +53,10 @@ class TPost extends TModel
 
         return $this->_post->$field;
     }
-
+    public function getThePost()
+    {
+        return $this->_post;
+    }
     public function loadPost($thePost)
     {
         $this->_post=$thePost;
@@ -79,12 +82,12 @@ class TPost extends TModel
 
     public function getDatePosted()
     {
-        return $this->loadValue('posted_date');
+        return $this->loadValue('post_date');
     }
 
     public function getDatePostedGMT()
     {
-        return $this->loadValue('posted_date_gmt');
+        return $this->loadValue('post_date_gmt');
     }
 
     public function getContent()
@@ -256,13 +259,14 @@ class TPost extends TModel
         }
         return NULL;
     }
-
+    
     /*
      * see http://codex.wordpress.org/Template_Tags/query_posts & http://codex.wordpress.org/Template_Tags/get_posts for paramenters
      */
     public static function findAll($args=NULL)
     {
-        $thePosts=get_posts($args);
+        unset($GLOBALS['post']);
+        $thePosts=query_posts($args);
         if($thePosts)
         {
             $postList=array();
@@ -272,7 +276,7 @@ class TPost extends TModel
                 $postItem->loadPost($thePost);
                 $postList[]=$postItem;
             }
-            return $postList;
+            return new TPostList($postList);
         }
         
         return array();
@@ -283,13 +287,15 @@ class TPost extends TModel
         global $wp_query;
         if(count($wp_query->posts>0))
         {
+
+        $postList=array();
         foreach($wp_query->posts as $thePost)
             {
                 $postItem=new self;
                 $postItem->loadPost($thePost);
                 $postList[]=$postItem;
             }
-            return $postList;
+            return new TPostList($postList);
         }
         return array();
     }
@@ -300,7 +306,7 @@ class TPost extends TModel
         if(isset($wp_query->posts[0]))
         {
             $tpost=new self;
-            $tpost->_post=$wp_query->posts[0];
+            $tpost->loadPost($wp_query->posts[0]);
             $tpost->setAsCurrentPost();
             return $tpost;
         }

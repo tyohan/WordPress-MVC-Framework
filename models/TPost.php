@@ -38,6 +38,7 @@ class TPost extends TModel
 {
     private $_post;
     private $_author;
+    private $_relatedPost=array();
 
 
 
@@ -71,13 +72,13 @@ class TPost extends TModel
     public function getAuthor()
     {
         if($this->_author===NULL)
-                $this->_author=get_userdata($this->authorID);
+                $this->_author=new TAuthor ($this->authorID);
         return $this->_author;
     }
 
     public function getAuthorID()
     {
-        return $this->loadValue('author');
+        return $this->loadValue('post_author');
     }
 
     public function getDatePosted()
@@ -246,7 +247,29 @@ class TPost extends TModel
         return get_next_post( $inSameCategory, $excluded_categories );
     }
 
-    
+    protected function getRelatedPostbyCat($pageSize=5)
+    {
+        if(!isset($this->_relatedPost['cat'][$pageSize]))
+        {
+            $categories = get_the_category($this->id);
+            if ($categories)
+            {
+                $category_ids = array();
+                foreach($categories as $individual_category) $category_ids[] = $individual_category->term_id;
+
+                $args=array(
+                    'category__in' => $category_ids,
+                    'post__not_in' => array($this->id),
+                    'posts_per_page'=> $pageSize, // Number of related posts that will be shown.
+                    'caller_get_posts'=>1
+                    );
+                $this->_relatedPost['cat'][$pageSize]=self::findAll($args);
+            }
+        }
+        return $this->_relatedPost['cat'][$pageSize];
+    }
+
+
     public static function find($id)
     {
         $thePost=get_post( $id);

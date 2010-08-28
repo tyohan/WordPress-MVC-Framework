@@ -27,6 +27,11 @@ class WpMvc extends TBase
     {
         return self::app()->view->_activeTheme;
     }
+
+    public function getThemeUrl()
+    {
+        return get_bloginfo('template_url').'/childthemes/'.$this->theme;
+    }
     
     public static function app()
     {

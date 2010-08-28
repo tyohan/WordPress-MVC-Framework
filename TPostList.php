@@ -14,7 +14,7 @@ class TPostList implements Iterator {
         $this->position = 0;
         $this->list=$list;
     }
-
+  
     function rewind() {
         $this->position = 0;
     }

@@ -40,8 +40,12 @@ class WpMvc extends TBase
             self::$_instance = new self();
             $root=dirname(__FILE__);
             $models=dirname(__FILE__).'/models';
+            $base=dirname(__FILE__).'/base';
+            $collections=dirname(__FILE__).'/collections';
             set_include_path(get_include_path() . PATH_SEPARATOR . $root);
             set_include_path(get_include_path() . PATH_SEPARATOR . $models);
+            set_include_path(get_include_path() . PATH_SEPARATOR . $base);
+            set_include_path(get_include_path() . PATH_SEPARATOR . $collections);
         }
 
         return self::$_instance;
@@ -71,11 +75,17 @@ class WpMvc extends TBase
 function __autoload($className)
 {
     $root=dirname(__FILE__);
+    $base=dirname(__FILE__).'/base';
     $models=dirname(__FILE__).'/models';
+    $collections=dirname(__FILE__).'/collections';
     if(is_file($root.'/'.$className.'.php'))
         require_once $root.'/'.$className.'.php';
+    elseif(is_file($base.'/'.$className.'.php'))
+        require_once $base.'/'.$className.'.php';
     elseif(is_file($models.'/'.$className.'.php'))
         require_once $models.'/'.$className.'.php';
+    elseif(is_file($collections.'/'.$className.'.php'))
+        require_once $collections.'/'.$className.'.php';
 
 
 }

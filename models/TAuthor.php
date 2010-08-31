@@ -34,6 +34,7 @@ class TAuthor extends TModel
 
     }
 
+    
     public function __get($name)
     {
         $getter='get'.$name;

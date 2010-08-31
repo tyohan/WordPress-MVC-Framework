@@ -32,7 +32,6 @@
  *
  * @author yohan
  */
-require_once dirname(__FILE__).'/../TModel.php';
 
 class TPost extends TModel
 {
@@ -63,7 +62,17 @@ class TPost extends TModel
         $this->_post=$thePost;
     }
 
+    protected function getCustomMeta()
+    {
+        return get_post_custom($this->id);
+    }
 
+    protected function getThumbnailUrl()
+    {
+        $thumbID=get_post_thumbnail_id($this->id);
+        if($thumbID!==NULL)
+            return wp_get_attachment_url($thumbID);
+    }
     public function getID()
     {
         return $this->loadValue('ID');
@@ -301,7 +310,7 @@ class TPost extends TModel
     public static function defaultPosts()
     {
         global $wp_query;
-        if(count($wp_query->posts>0))
+        if(!empty($wp_query->posts))
         {
             return new TPostList($wp_query->posts);
         }

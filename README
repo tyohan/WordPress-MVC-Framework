@@ -3,3 +3,5 @@ Basically it has 2 components, model and view components.
 The model component will wrapped WordPress components like post, category, tag, author, etc.
 The view component will use as template separator between business logic and interface file.
 The controller will handle by regular template file like index.php, front.php, single.php, etc in your theme directory.
+
+The documentation will update soon with example theme so you can see how this framework cut down your theme development time in WordPress.

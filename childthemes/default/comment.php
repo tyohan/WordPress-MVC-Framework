@@ -16,7 +16,7 @@ $GLOBALS['comment'] = $comment;
                                         <a class="comment-date" href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
                                             <?php
                                                     /* translators: 1: date, 2: time */
-                                                    printf( __( '%1$s at %2$s', 'twentyten' ), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( __( '(Edit)', 'twentyten' ), ' ' );
+                                                    printf( __( '%1$s at %2$s', 'twentyten' ), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link();
                                             ?>
                                     </div><!-- .comment-meta .commentmetadata -->
 

@@ -4,8 +4,8 @@
     <div><?php the_content();?></div>
 </div>
 <div class="side-col span-8 push-1 last">
-    <?php WpMvc::app()->view->render('widgetChildrenMenu',array('thePost'=>$thePost));?>
-    <?php WpMvc::app()->view->render('widgetConnect');?>
+    <?php WpMvc::app()->view->render('widgets/widgetChildrenMenu',array('thePost'=>$thePost));?>
+    <?php WpMvc::app()->view->render('widgets/widgetConnect');?>
     <?php dynamic_sidebar('MainRight');?>
 </div>
 <?php WpMvc::app()->view->render('footer');?>

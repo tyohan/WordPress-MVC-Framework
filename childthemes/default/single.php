@@ -5,7 +5,9 @@
     <?php if($thePost->type==='post'):?>
     <div class="post-meta align-right">
         <p>Tag: <?php the_tags('', '&nbsp;', '') ;?></p>
-        <p>Posted in : <?php echo get_the_category_list( '&nbsp; ' );?></p>
+        <p>Posted in : <?php echo get_the_category_list( '&nbsp; ' );?>
+        
+        </p>
     </div>
     <?php endif;?>
      <?php WpMvc::app()->view->render('widgets/widgetShare')?>

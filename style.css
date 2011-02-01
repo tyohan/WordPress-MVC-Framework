@@ -1,0 +1,369 @@
+/*
+Theme Name:Thinkrooms MVC
+Theme URI: http://www.thinkrooms.com/
+Description: MVC Themes using WpMvc Framework
+Author: Yohan Totting
+Version: 0.1
+Tags: WpMvc
+
+*/
+.align-right{
+	text-align:right;
+}
+.align-center{
+	text-align:center;
+}
+.align-left{
+	text-align:left;
+}
+.left{
+    float:left;
+}
+.right{
+    float: right;
+}
+.space{
+    margin-bottom: 0.5em;
+}
+.bold{font-weight: bold;}
+html,body{
+        font-family: 'helvetica neue', helvetica, arial, verdana;
+	color:#FFF;
+}
+h1,h2,h3,h4,h5{
+	color:#FFF;
+        font-weight: normal;
+        text-shadow: 1px 1px #000;
+}
+pre,code{
+    width:100%;
+    overflow-x: auto;
+
+}
+
+blockquote {
+	color: #FFF;
+	font-size:1.5em;
+        font-family: georgia, serif;
+
+}
+blockquote p:before {
+	content: '"';
+}
+blockquote p:after {
+	content: '"';
+}
+a{
+    color:#FF9900;
+    text-decoration: none;
+}
+a:hover{
+    color:#FF6600;
+}
+input[type="text"],input[type="password"],input[type="search"],textarea{
+    padding: 0.3em 0.2em;
+    border:1px solid #CCC;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    background-color:#F2F2F2;
+    background-image: -moz-linear-gradient(30% 100% 90deg, #F2F2F2, #FFF);
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 30%, from(#F2F2F2), to(#FFF));
+}
+
+body,html{
+	background-color: #003399;
+}
+
+#header{
+	margin-top:3em;
+}
+#header h3{
+	margin-top: -1.6em;
+	font-size: 1.6em;
+}
+#search-form{
+	text-align:right;
+}
+#search-form input:hover{
+    border:none;
+}
+#search-text{
+	background-color: #FFF;
+	height:30px;
+	width:200px;
+	padding:0.3em 1em;
+	border:1px solid #CCC;
+	margin:0;
+}
+#search-form input[type=image]{
+	padding:0.2em 1em;
+	vertical-align:top;
+}
+#footer{
+	background:#003366;
+	border-top:1px solid #000;
+	text-align:center;
+}
+#footer .container{
+	min-height: 200px;
+        padding-top:2em;
+        color: #F0F0F0;
+}
+.footer-content{
+	padding:2em 0;	
+}
+.services img{
+       border:5px solid #F0F0F0;
+       -moz-border-radius:5px;
+       -webkit-border-radius:5px;
+       border-top-color: #FFF;
+       -webkit-box-shadow:1px 1px 2px #333;
+        -moz-box-shadow:1px 1px 2px #333;
+        margin-bottom: 1em;
+}
+.breadcrumb{
+    margin-bottom: 1em;
+    font-size: 1.2em;
+}
+#main-content{
+	padding-bottom:5em;
+	min-height: 300px;
+        padding-top: 5em;
+}
+#main-menu ul,#header .menu ul{
+	list-style:none;
+}
+#main-menu ul li,#header .menu ul li{
+	float:right;
+	margin-left:20px;
+	text-align:right;
+}
+
+#header .menu ul li a#main-menu ul li a{
+	font-size:1.6em;
+	text-decoration:none;
+	color:#FFF;
+}
+#header .menu ul li a:hover, #main-menu ul li a:hover{
+	color:#FF9900;
+}
+.main-col{
+    min-height: 300px;
+}
+.main-col h1{
+    line-height: 1.4em;
+}
+.main-col h3{
+    margin:1.8em 0 1em 0;
+}
+.main-col li{
+    margin:0.5em 0;
+}
+.side-col{
+    min-height: 200px;
+    margin-bottom: 300px;
+}
+.side-col h3{
+    margin-bottom: 0.5em;
+}
+.side-col h3 a{
+    color:#FFF;
+}
+.side-col .widget{
+    margin-bottom: 2em;
+}
+.side-col ul{
+    padding:0;
+    border-top: 1px dashed #CCC;
+}
+.side-col li{
+    list-style: none;
+    padding: 0.4em 0;
+    border-bottom: 1px dashed #CCC;
+}
+
+.main-col ul.socialize-this{
+    text-align: left;
+}
+.services p{
+	height:10em;
+}
+.button-more{
+	background-color:#FF6600;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+        border-top:1px solid #FFF;
+        box-shadow:1px 1px 1px #000;
+	color:#FFF;
+	text-decoration:none;
+	padding:0.5em 2em;
+	text-transform:uppercase;
+        display: inline;
+}
+
+.read-more,.reply a,.post-meta a{
+	background-color:#FF6600;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	color:#FFF;
+	text-decoration:none;
+	padding:0.2em 1em;
+	text-transform:lowercase;
+
+}
+a:hover.button-more,a:hover.read-more,.reply a:hover,.post-meta a:hover{
+	background-color:#FF9900;
+	color:#FFF;
+}
+
+.post{
+    margin-bottom: 3em;
+    clear:left;
+}
+.post h2{
+    margin-bottom: 0.5em;
+}
+.post-author .avatar{
+    float:left;
+    padding:0 1em 1em 0;
+}
+.post-author-name{
+    font-size: 1.2em;
+}
+.commentlist{
+	list-style: none;
+	padding-left: 0;
+}
+
+.comment-item{
+    margin-bottom: 1em;
+}
+.children .comment-item{
+    margin-bottom: 0.5em;
+}
+
+.comment-author{
+	width: 70px;
+	float: left;
+	text-align: left;
+        background: transparent url(images/comment-tooltip.png) no-repeat 100% 30%;
+}
+.comment-author img{
+    padding: 2px;
+    background-color: #FFF;
+    border:1px solid #CCC;
+}
+.comment-author-link{
+    font-size: 1.2em;
+}
+.comment-data{
+	margin-left: 70px;
+        background-color: #004489;
+        -moz-border-radius:5px;
+	-webkit-border-radius:5px;
+        padding: 1em;
+        -webkit-box-shadow:1px 1px 2px #333;
+        -moz-box-shadow:1px 1px 2px #333;
+        margin-bottom: 1em;
+
+}
+#commentform label{
+    display: block;
+    float:left;
+    width: 120px;
+    clear:both;
+}
+
+#commentform input[type=text],#commentform textarea{
+    
+    width: 445px;
+}
+#commentform label{
+    line-height: 2.5em;
+}
+.navigation{
+    height: 40px;
+}
+.navigation-top{
+    width: 80px;
+    float: right;
+    height: 40px;
+}
+.navigation img,.navigation-top img{
+    width: 32px;
+}
+.children{
+	list-style: none;
+        padding-left: 70px;
+}
+
+.footer-widget{
+    text-align: left;
+    text-shadow: 1px 1px #000;
+}
+.follow img{
+    vertical-align: top;
+    padding-right: 1em;
+}
+.follow .space{
+    line-height: 2.5em;
+    font-size: 1.2em;
+}
+#portfolio{
+    margin-bottom: 300px;
+}
+.portfolio-box{
+    width: 200px;
+    padding: 10px;
+    float: left;
+    margin:0 10px 10px 0;
+    background: #F0F0F0;
+    color: #666;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+}
+.portfolio-box h3{
+    color:#333;
+    text-shadow:none;
+}
+.portfolio-box .picture{
+    width: 200px;
+    height: 150px;
+    display: block;
+    background-color: #FFF;
+    margin-bottom: 1em;
+}
+.portfolio-box img{
+    width: 190px;
+    padding: 5px;
+}
+.portfolio-box .url,.portfolio-box .detail{
+    
+    font-weight: bold;
+}
+.portfolio-box .url{
+    margin: 0 auto;
+    display: block;
+    width: 50px;
+    text-align: center;
+}
+.portfolio-box .year{
+    font-size: 1.2em;
+}
+
+.main-col img.alignleft{
+    float:left;
+    margin:0 1em 0.5em 0;
+}
+
+.main-col img.alignright{
+    float:right;
+    margin:0 0 0.5em 1em;
+}
+.main-col img.aligncenter{
+    display:block;
+    text-align: center;
+    margin:1em;
+}

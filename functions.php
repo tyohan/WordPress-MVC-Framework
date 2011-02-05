@@ -1,9 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
-@ini_set( 'upload_max_size' , '100M' );
-@ini_set( 'post_max_size', '105M');
-@ini_set( 'max_execution_time', '300' );
+
 require_once dirname(__FILE__) . '/framework/WpMvc.php';
 WpMvc::init();
 WpMvc::app()->theme = 'child';

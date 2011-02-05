@@ -78,9 +78,13 @@ body,html{
 #header{
 	margin-top:3em;
 }
+#header h2{
+    font-size: 2.8em;
+    line-height: 1em;
+}
 #header h3{
-	margin-top: -1.6em;
 	font-size: 1.6em;
+        line-height: 2em;
 }
 #search-form{
 	text-align:right;

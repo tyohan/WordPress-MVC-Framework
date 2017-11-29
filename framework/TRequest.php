@@ -14,10 +14,7 @@ class TRequest extends TBase
 {
     public function hasController($filepath)
     {
-        if(is_file($filepath))
-            return TRUE;
-        else
-            return FALSE;
+        return is_file($filepath);
     }
     
     public function route()
